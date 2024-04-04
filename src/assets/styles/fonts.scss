@@ -1,0 +1,17 @@
+//This is file contains @font-face directives definitions to connect fonts to App
+
+@font-face {
+  font-family: 'Golos Text';
+  font-display: swap;
+  src: url('/fonts/GolosText-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Golos Text';
+  font-display: swap;
+  src: url('/fonts/GolosText-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
