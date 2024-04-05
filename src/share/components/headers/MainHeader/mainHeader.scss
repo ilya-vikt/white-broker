@@ -1,0 +1,20 @@
+.header {
+  padding-top: 7px;
+
+  &__container {
+    border-bottom: 1px solid var(--cl-border);
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__logo {
+    width: 255px;
+  }
+
+  &__contact-us {
+    flex-grow: 1;
+  }
+}

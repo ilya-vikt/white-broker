@@ -1,0 +1,15 @@
+.area-selector {
+  padding: 4px 11px 4px 16px;
+  background-color: var(--cl-tag);
+  border: none;
+  border-radius: 130px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+
+  &__icon {
+    width: 11px;
+    height: 11px;
+  }
+}
