@@ -17,3 +17,10 @@ body {
   margin: 0 auto;
   padding: 0 60px;
 }
+
+.lnk {
+  transition: color $animation;
+  &:hover {
+    color: var(--cl-primary);
+  }
+}
