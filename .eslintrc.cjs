@@ -5,7 +5,8 @@ module.exports = {
   root: true,
   rules: {
     'vue/attributes-order': 'error',
-    '@typescript-eslint/no-unused-vars': 'warn'
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'no-prototype-builtins': 'off'
   },
   extends: [
     'plugin:vue/vue3-essential',
