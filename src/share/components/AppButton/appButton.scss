@@ -5,4 +5,16 @@
   border: none;
   border-radius: 3px;
   font-size: 14px;
+
+  &--simple {
+    background-color: transparent;
+    padding: 8px;
+    color: inherit;
+    font-size: 0;
+    transition: color $animation;
+
+    &:hover {
+      color: var(--cl-primary);
+    }
+  }
 }
