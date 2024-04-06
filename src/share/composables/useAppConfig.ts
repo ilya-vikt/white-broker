@@ -1,7 +1,7 @@
 import { useFetch } from '@/share/composables/useFetch';
 import { endpoints } from '@/share/constants';
 
-type AppConifg = {
+type AppConfig = {
   mainMenu: [
     {
       id: number;
@@ -15,7 +15,7 @@ type AppConifg = {
   };
 };
 
-const { data, isFetching, isError } = useFetch<AppConifg>(endpoints.getAppConfig);
+const { data, isFetching, isError } = useFetch<AppConfig>(endpoints.getAppConfig);
 
 /**
  * The function requests configuration data from the server for the application,
