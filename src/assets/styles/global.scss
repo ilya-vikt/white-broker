@@ -39,3 +39,8 @@ body {
   border: 0;
   clip: rect(0 0 0 0);
 }
+
+.title {
+  font-size: clamp(28px, calc(26.67px + 0.37vw), 32px);
+  font-weight: 500;
+}
