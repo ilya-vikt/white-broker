@@ -1,0 +1,16 @@
+.drover {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  background-color: var(--cl-overlay);
+}
+
+.drover-enter-active,
+.drover-leave-active {
+  transition: background-color $animation;
+}
+
+.drover-enter-from,
+.drover-leave-to {
+  background-color: transparent;
+}
