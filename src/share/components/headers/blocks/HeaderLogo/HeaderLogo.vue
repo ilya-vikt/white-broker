@@ -1,8 +1,8 @@
 <template>
   <RouterLink class="header-logo" :to="{ name: 'buyView' }">
     <svg
-      width="257"
-      height="39"
+      width="auto"
+      height="auto"
       viewBox="0 0 257 39"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

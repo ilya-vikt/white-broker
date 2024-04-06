@@ -1,12 +1,11 @@
 .header-menu {
-  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   gap: 5px;
 
   &__lnk {
     padding-top: 5px;
-    padding-bottom: 20px;
+    padding-bottom: 17px;
     display: block;
     white-space: nowrap;
     font-size: 18px;
@@ -15,6 +14,16 @@
 
     &:hover {
       border-bottom-color: var(--cl-primary);
+    }
+  }
+
+  &--mobile {
+    flex-direction: column;
+    padding: 0;
+    align-items: flex-start;
+
+    .header-menu__lnk {
+      padding-bottom: 5px;
     }
   }
 }

@@ -1,0 +1,65 @@
+.drover-menu {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 30%;
+    height: 100%;
+    margin-left: auto;
+    padding: 20px;
+    padding-top: 0;
+    background-color: var(--cl-bg);
+    overflow-y: auto;
+  }
+
+  &__top {
+    padding: 10px 0;
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__close {
+    margin-left: auto;
+  }
+
+  &__cross {
+    width: 14px;
+    height: 14px;
+  }
+}
+.is-tablet .drover-menu__inner {
+  width: 50%;
+}
+
+.is-mobile .drover-menu {
+  &__inner {
+    width: 100%;
+    align-items: center;
+  }
+
+  &__menu,
+  &__application {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+.drover-enter-active,
+.drover-leave-active {
+  & .drover-menu__inner {
+    transition:
+      transform $animation,
+      opacity $animation;
+  }
+}
+
+.drover-enter-from,
+.drover-leave-to {
+  & .drover-menu__inner {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+}

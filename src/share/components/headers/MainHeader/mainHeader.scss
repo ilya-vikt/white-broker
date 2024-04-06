@@ -1,20 +1,31 @@
 .header {
-  padding-top: 7px;
-
   &__container {
     border-bottom: 1px solid var(--cl-border);
   }
+
   &__top {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: clamp(23px, calc(20.67px + 0.648vw), 30px);
+    padding-top: clamp(7px, calc(15px - 0.56vw), 13px);
+    padding-bottom: clamp(7px, calc(9.67px - 0.19vw), 9px);
   }
 
   &__logo {
-    width: 255px;
+    width: clamp(142px, calc(104.33px + 10.46vw), 255px);
   }
 
   &__contact-us {
     flex-grow: 1;
+  }
+
+  &__burger {
+    border: none;
+    background-color: transparent;
+    padding: 3px;
+  }
+
+  &__menu {
+    padding-top: 15px;
   }
 }
