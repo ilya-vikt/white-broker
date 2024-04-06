@@ -24,3 +24,7 @@ body {
     color: var(--cl-primary);
   }
 }
+
+.no-scroll {
+  overflow: hidden;
+}
