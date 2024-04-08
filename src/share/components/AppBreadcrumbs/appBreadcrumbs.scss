@@ -5,7 +5,7 @@
   font-size: 14px;
 
   &__item {
-    color: var(--cl-crumb);
+    color: var(--cl-text-six);
 
     &:not(:last-child)::after {
       content: '/';
