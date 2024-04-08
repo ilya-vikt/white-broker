@@ -2,16 +2,40 @@ import { useFetch } from '@/share/composables/useFetch';
 import { endpoints } from '@/share/constants';
 
 type AppConfig = {
-  mainMenu: [
-    {
+  mainMenu: {
+    id: number;
+    caption: string;
+    href: string;
+  }[];
+  footerMenu: {
+    title: {
       id: number;
       caption: string;
       href: string;
-    }
-  ];
+    };
+    subMenu: {
+      id: number;
+      caption: string;
+      href: string;
+    }[];
+  }[];
   headerPhone: {
     href: string;
     caption: string;
+  };
+  footerPhone: {
+    href: string;
+    caption: string;
+  };
+  copyright: string;
+  creators: {
+    text: string;
+    href: string;
+  };
+  socials: {
+    telegram: string;
+    youtube: string;
+    vk: string;
   };
 };
 

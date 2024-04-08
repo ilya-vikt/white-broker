@@ -1,0 +1,31 @@
+.footer-socials {
+  display: inline-flex;
+  gap: 8px;
+
+  &__lnk {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--cl-primary);
+    width: 30px;
+    height: 30px;
+  }
+
+  &__telegram {
+    margin-left: -2px;
+  }
+
+  &__youtube {
+    margin-right: -1px;
+  }
+}
+
+.is-mobile .footer-socials {
+  gap: 14px;
+
+  &__lnk {
+    width: 40px;
+    height: 40px;
+  }
+}

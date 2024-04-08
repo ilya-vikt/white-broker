@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import AppBreadcrumbs from '@/share/components/AppBreadcrumbs/AppBreadcrumbs.vue';
 import MainHeader from '@/share/components/headers/MainHeader/MainHeader.vue';
+import AppFooter from '@/share/components/AppFooter/AppFooter.vue';
+
 import { useBreakpoints } from '@/share/composables/useBreakpoints';
 
 const { isCompact } = useBreakpoints();
@@ -29,4 +31,5 @@ const { isCompact } = useBreakpoints();
   <main>
     <slot />
   </main>
+  <AppFooter />
 </template>
