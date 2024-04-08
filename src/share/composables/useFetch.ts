@@ -11,7 +11,7 @@ type Config = {
  * @param {Config} config unnecessary configuration
  * @returns {Object} data is fetched data, isFetching flag, isError flag, refetch - function to refetch data
  */
-export const useFetch = <T = any>(url: string, config?: Config) => {
+export const useFetch = <T = any>(defaultUrl: string, config?: Config) => {
   const defaultConfig: Config = {
     immediately: true
   };
@@ -27,12 +27,12 @@ export const useFetch = <T = any>(url: string, config?: Config) => {
   const isFetching = ref(false);
   const isError = ref(false);
 
-  const refetch = async () => {
+  const refetch = async (url?: string) => {
     try {
       isFetching.value = true;
 
       data.value = null;
-      const response = await fetch(url);
+      const response = await fetch(url ?? defaultUrl);
       data.value = (await response.json()) as UnwrapRef<T>;
     } catch {
       isError.value = true;
