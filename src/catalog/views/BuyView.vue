@@ -2,6 +2,7 @@
 import CreditCalc from '@/catalog/components/CreditCalc/CreditCalc.vue';
 import PromoSlider from '@/catalog/components/PromoSlider/PromoSlider.vue';
 import RealtyList from '@/catalog/components/RealtyList/RealtyList.vue';
+import RealtyFilters from '@/catalog/components/RealtyFilters/RealtyFilters.vue';
 
 import { useBreakpoints } from '@/share/composables/useBreakpoints';
 const { isCompact } = useBreakpoints();
@@ -11,6 +12,7 @@ const { isCompact } = useBreakpoints();
   <div class="buy-view">
     <div class="container">
       <h1 class="buy-view__title">Купить квартиру в Москве</h1>
+      <RealtyFilters />
     </div>
     <div class="buy-view__realty">
       <div class="buy-view__shadow"></div>

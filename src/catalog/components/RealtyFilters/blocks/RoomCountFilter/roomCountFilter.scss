@@ -1,0 +1,41 @@
+.room-filter {
+  display: inline-flex;
+  padding: 0;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+
+    &:checked + label {
+      color: var(--cl-primary);
+    }
+  }
+
+  label {
+    position: relative;
+    padding: 10px 17px;
+    font-size: 14px;
+    line-height: 1.4;
+    border: 1px solid transparent;
+
+    &:first-of-type {
+      padding-left: 14px;
+    }
+
+    &:last-of-type {
+      padding-right: 14px;
+    }
+
+    &:not(:last-of-type)::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 1px;
+      height: 20px;
+      background-color: var(--cl-border);
+      right: 0;
+    }
+  }
+}
