@@ -1,0 +1,38 @@
+.dropdown-base {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  min-width: 130px;
+  font-size: 16px;
+
+  &__display {
+    flex-grow: 1;
+
+    &--empty {
+      color: var(--cl-text-six);
+    }
+  }
+
+  &__trigger {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  &::after {
+    content: '';
+    background-image: url('@/assets/decor/arrow.svg');
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: transform $animation;
+  }
+
+  &--expanded::after {
+    transform: rotateZ(180deg);
+  }
+}

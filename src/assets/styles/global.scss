@@ -66,3 +66,8 @@ body {
   font-size: 14px;
   line-height: 1.4;
 }
+
+//hide a dropdown arrow in a Floating Vue plugin
+.v-popper__arrow-container {
+  display: none !important;
+}

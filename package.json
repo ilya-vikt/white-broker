@@ -15,6 +15,7 @@
     "server": "json-server -w ./server/db.json -p 3010"
   },
   "dependencies": {
+    "floating-vue": "^5.2.2",
     "swiper": "^11.1.0",
     "vue": "^3.4.21",
     "vue-currency-input": "^3.1.0",
