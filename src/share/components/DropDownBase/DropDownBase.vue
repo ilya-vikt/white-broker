@@ -22,7 +22,9 @@ const isExpanded = ref(false);
     </div>
     <button class="dropdown-base__trigger" type="button"></button>
     <template #popper>
-      <slot />
+      <div class="dropdown-base__popper">
+        <slot />
+      </div>
     </template>
   </VDropdown>
 </template>
