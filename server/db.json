@@ -52,9 +52,294 @@
         "href": "/"
       }
     ],
+    "footerMenu": [
+      {
+        "title": {
+          "id": 1,
+          "caption": "Купить",
+          "href": "/"
+        },
+        "subMenu": [
+          {
+            "id": 2,
+            "caption": "Новостройки",
+            "href": "/"
+          },
+          {
+            "id": 3,
+            "caption": "Вторичная недвижимость",
+            "href": "/"
+          },
+          {
+            "id": 4,
+            "caption": "Зарубежная недвижимость",
+            "href": "/"
+          }
+        ]
+      },
+      {
+        "title": {
+          "id": 5,
+          "caption": "Продать",
+          "href": "/"
+        },
+        "subMenu": []
+      },
+      {
+        "title": {
+          "id": 6,
+          "caption": "Снять",
+          "href": "/"
+        },
+        "subMenu": []
+      },
+      {
+        "title": {
+          "id": 7,
+          "caption": "Услуги",
+          "href": "/"
+        },
+        "subMenu": [
+          {
+            "id": 8,
+            "caption": "Ремонт",
+            "href": "/"
+          },
+          {
+            "id": 9,
+            "caption": "Клининг",
+            "href": "/"
+          },
+          {
+            "id": 10,
+            "caption": "Дизайн",
+            "href": "/"
+          },
+          {
+            "id": 11,
+            "caption": "Переезд",
+            "href": "/"
+          },
+          {
+            "id": 12,
+            "caption": "Оценка",
+            "href": "/"
+          },
+          {
+            "id": 13,
+            "caption": "Прием квартиры",
+            "href": "/"
+          },
+          {
+            "id": 14,
+            "caption": "Страхование",
+            "href": "/"
+          },
+          {
+            "id": 15,
+            "caption": "Ипотека",
+            "href": "/"
+          }
+        ]
+      },
+      {
+        "title": {
+          "id": 16,
+          "caption": "Банкротный брокер",
+          "href": "/"
+        },
+        "subMenu": [
+          {
+            "id": 17,
+            "caption": "Продать с брокером",
+            "href": "/"
+          },
+          {
+            "id": 18,
+            "caption": "Купить с брокером",
+            "href": "/"
+          },
+          {
+            "id": 19,
+            "caption": "Банкротные торги",
+            "href": "/"
+          },
+          {
+            "id": 20,
+            "caption": "Инвестирование",
+            "href": "/"
+          }
+        ]
+      },
+      {
+        "title": {
+          "id": 21,
+          "caption": "О компании",
+          "href": "/"
+        },
+        "subMenu": [
+          {
+            "id": 22,
+            "caption": "Вакансии",
+            "href": "/"
+          },
+          {
+            "id": 23,
+            "caption": "Контакты",
+            "href": "/"
+          },
+          {
+            "id": 24,
+            "caption": "Новости",
+            "href": "/"
+          },
+          {
+            "id": 24,
+            "caption": "Команда",
+            "href": "/"
+          }
+        ]
+      }
+    ],
     "headerPhone": {
       "href": "tel:+74997077763",
       "caption": "+7 499 707-77-63"
+    },
+    "footerPhone": {
+      "href": "tel:+73452575833",
+      "caption": "+7 (3452) 57-58-33"
+    },
+    "copyright": "©1991–2023 ЗАО «Урал-Омега». Все права защищены",
+    "creators": {
+      "text": "Digital-агентство Тапир",
+      "href": "https://tapir.group"
+    },
+    "socials": {
+      "telegram": "https://telegram.org",
+      "youtube": "https://youtube.com",
+      "vk": "https://vk.com"
     }
-  }
+  },
+  "pageinfo": [
+    {
+      "name": "buyView",
+      "title": "Купить",
+      "creditCalc": {
+        "cost": {
+          "minVal": 300000,
+          "maxVal": 100000000,
+          "default": 400000
+        },
+        "term": {
+          "minVal": 1,
+          "maxVal": 30,
+          "default": 3
+        },
+        "interest": {
+          "minVal": 10,
+          "maxVal": 20,
+          "default": 12
+        },
+        "initialFee": {
+          "maxVal": 30
+        },
+        "disclaimer": "Этот расчет не является публичной офертой, конечное предложение может отличаться от представленного"
+      },
+      "promo": [
+        {
+          "id": 1,
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        },
+        {
+          "id": 2,
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        },
+        {
+          "id": 3,
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        },
+        {
+          "id": 4,
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        },
+        {
+          "id": 5,
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        },
+        {
+          "id": 6,
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        },
+        {
+          "id": 7,
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        },
+        {
+          "id": 8,
+
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        },
+        {
+          "id": 9,
+
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        },
+        {
+          "id": 10,
+
+          "title": "Ипотека для работников IT-организаций",
+          "expire": "До 12.05.2023",
+          "rate": 8,
+          "limit": "до 6 млн ₽",
+          "href": "/",
+          "decorUrl": "./promo/decor-1.svg"
+        }
+      ]
+    }
+  ]
 }

@@ -3,6 +3,24 @@ import type { ComputedRef } from 'vue';
 
 export type BuyPageInfo = PageInfo & {
   creditCalc: {
+    cost: {
+      minVal: number;
+      maxVal: number;
+      default: number;
+    };
+    term: {
+      minVal: number;
+      maxVal: number;
+      default: number;
+    };
+    interest: {
+      minVal: number;
+      maxVal: number;
+      default: number;
+    };
+    initialFee: {
+      maxVal: number;
+    };
     disclaimer: string;
   };
   promo: {
