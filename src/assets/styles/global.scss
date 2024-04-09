@@ -45,4 +45,12 @@ body {
   font-weight: 500;
   margin-bottom: clamp(20px, calc(16.67px + 0.926vw), 30px);
 }
+
+.control-base {
+  padding: 12px 14px;
+  background-color: var(--cl-control);
+  border: 1px solid var(--cl-border);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
 }
