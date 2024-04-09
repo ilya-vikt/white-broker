@@ -3,7 +3,7 @@ import type { BuyPageInfoRef } from '@/catalog/types';
 import { useBreakpoints } from '@/share/composables/useBreakpoints';
 import { usePageInfo } from '@/share/composables/usePageInfo';
 import { computed } from 'vue';
-import PromoCard from '@/catalog/components/PromoSlider/PromoCard/PromoCard.vue';
+import PromoCard from '@/catalog/components/PromoSlider/blocks/PromoCard/PromoCard.vue';
 
 const { breakpoint } = useBreakpoints();
 const { pageInfo }: { pageInfo: BuyPageInfoRef } = usePageInfo();
