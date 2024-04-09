@@ -1,0 +1,30 @@
+.buy-view {
+  padding-top: 23px;
+  padding-bottom: 50px;
+
+  &__title {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  &__shadow {
+    box-shadow: 0px -26px 84.1px 0px #00000040;
+    height: 1000px;
+    margin-top: -1000px;
+  }
+
+  &__realty {
+    margin-bottom: clamp(40px, calc(20px + 5.556vw), 100px);
+  }
+
+  &__promo {
+    margin-bottom: clamp(60px, calc(46.67px + 3.704vw), 100px);
+  }
+}
+
+.is-mobile .buy-view {
+  &__promo {
+    padding: 0;
+  }
+}
