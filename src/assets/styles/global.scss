@@ -52,6 +52,9 @@ body {
 .title {
   font-size: clamp(22px, calc(18.67px + 0.926vw), 32px);
   font-weight: 500;
+}
+
+.title-offset {
   margin-bottom: clamp(20px, calc(16.67px + 0.926vw), 30px);
 }
 
