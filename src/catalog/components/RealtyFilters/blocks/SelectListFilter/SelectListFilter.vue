@@ -46,6 +46,7 @@ const displayValue = computed(() => {
         <input
           :id="`id-${data.value}`"
           v-model="modelValue"
+          class="hidden-input"
           :type="multiselect ? 'checkbox' : 'radio'"
           :value="data.value"
           :name="filterName"

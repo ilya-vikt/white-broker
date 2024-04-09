@@ -7,11 +7,6 @@
 
   &__item {
     input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-      position: absolute;
-
       &:checked + label {
         color: var(--cl-primary);
       }

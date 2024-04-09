@@ -67,6 +67,12 @@ body {
   line-height: 1.4;
 }
 
+.hidden-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
 //hide a dropdown arrow in a Floating Vue plugin
 .v-popper__arrow-container {
   display: none !important;
