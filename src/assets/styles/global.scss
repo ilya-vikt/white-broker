@@ -41,6 +41,8 @@ body {
 }
 
 .title {
-  font-size: clamp(28px, calc(26.67px + 0.37vw), 32px);
+  font-size: clamp(22px, calc(18.67px + 0.926vw), 32px);
   font-weight: 500;
+  margin-bottom: clamp(20px, calc(16.67px + 0.926vw), 30px);
+}
 }
