@@ -1,0 +1,85 @@
+.credit-field {
+  &__caption {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: var(--cl-text-five);
+  }
+
+  &__value {
+    display: flex;
+    position: relative;
+    font-size: 14px;
+  }
+
+  &__control {
+    outline: none;
+    border: none;
+    width: 100%;
+  }
+
+  &__display {
+    position: absolute;
+    inset: 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    pointer-events: none;
+    user-select: none;
+    background-color: var(--cl-bg);
+
+    &--indent {
+      right: calc(7ch + 12px);
+    }
+  }
+
+  &__control:focus + .credit-field__display {
+    visibility: hidden;
+  }
+
+  &__range {
+    position: absolute;
+    left: -8px;
+    right: -8px;
+    bottom: -5px;
+    height: 10px;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__slider {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 0;
+    height: 1px;
+    width: calc(var(--thumb-offset));
+    transform-origin: left center;
+    background-color: var(--cl-primary);
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      right: 0;
+      top: 0;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background-color: var(--cl-primary);
+      pointer-events: none;
+    }
+  }
+
+  &__info {
+    margin-left: auto;
+    color: var(--cl-text-six);
+    white-space: nowrap;
+  }
+}
+
+.is-compact .credit-field {
+  &__caption {
+    margin-bottom: 9px;
+  }
+}

@@ -1,0 +1,19 @@
+.credit-disclaimer {
+  display: flex;
+  gap: 10px;
+  max-width: 390px;
+  line-height: 1.5;
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  &--in-params {
+    align-items: center;
+    .credit-disclaimer__icon {
+      color: var(--cl-primary);
+    }
+  }
+}

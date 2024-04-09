@@ -1,0 +1,18 @@
+.credit-calc {
+  display: flex;
+  gap: 20px;
+
+  &__params,
+  &__result {
+    flex: 1 1 50%;
+  }
+}
+
+.is-compact .credit-calc {
+  flex-direction: column;
+
+  &__params,
+  &__result {
+    flex: initial;
+  }
+}

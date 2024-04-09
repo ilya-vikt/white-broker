@@ -1,0 +1,36 @@
+.credit-params {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px;
+  height: 448px;
+  background-color: var(--cl-card);
+
+  &__title {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  &__fields,
+  &__group {
+    display: flex;
+    gap: 18px;
+  }
+
+  &__fields {
+    flex-direction: column;
+  }
+
+  &__group > * {
+    width: calc(50% - 9px);
+  }
+
+  &__disclaimer {
+  }
+}
+
+.is-compact .credit-params {
+  height: auto;
+  padding: 20px;
+}

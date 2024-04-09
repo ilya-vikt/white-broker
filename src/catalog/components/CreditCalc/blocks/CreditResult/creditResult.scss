@@ -1,0 +1,61 @@
+.credit-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  color: var(--cl-white);
+  background-color: var(--cl-primary);
+  border-radius: 8px;
+  height: 448px;
+  background-image: url('@/assets/decor/calc-decor-1.svg'), url('@/assets/decor/calc-decor-2.svg');
+  background-repeat: no-repeat no-repeat;
+  background-position:
+    -149px -409px,
+    352px 63px;
+
+  box-shadow:
+    0px 0.5px 0px 0px #0000001a,
+    0px 2px 29.3px 0px #0000000a;
+
+  &__caption {
+    margin-bottom: 5px;
+  }
+
+  &__value {
+    font-size: 32px;
+    line-height: 1;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__payment {
+    span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    span:first-child {
+      margin-bottom: 4px;
+    }
+
+    span:last-child {
+      line-height: 1.2;
+      font-size: clamp(42px, calc(35.33px + 1.852vw), 62px);
+    }
+  }
+}
+
+.is-compact .credit-result {
+  height: auto;
+  gap: 20px;
+  padding: 34px 20px 18px;
+  background-image: none;
+
+  &__payment {
+    span:first-child {
+      margin-bottom: 6px;
+    }
+  }
+}
