@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import CreditCalc from '@/catalog/components/CreditCalc/CreditCalc.vue';
+import PromoSlider from '@/catalog/components/PromoSlider/PromoSlider.vue';
 </script>
 
 <template>
   <div class="buy-view">
+    <div class="container">
+      <h1 class="buy-view__title">Купить квартиру в Москве</h1>
+    </div>
+    <div class="container">
+      <h2 class="title">Акции</h2>
+    </div>
     <div class="buy-view__promo container">
       <PromoSlider />
     </div>
