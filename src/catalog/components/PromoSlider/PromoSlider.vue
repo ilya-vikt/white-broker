@@ -5,7 +5,7 @@ import { usePageInfo } from '@/share/composables/usePageInfo';
 import { computed } from 'vue';
 import PromoCard from '@/catalog/components/PromoSlider/blocks/PromoCard/PromoCard.vue';
 
-const { breakpoint } = useBreakpoints();
+const { breakpoint, isCompact } = useBreakpoints();
 const { pageInfo }: { pageInfo: BuyPageInfoRef } = usePageInfo();
 
 const slidesPerView = computed(() => {
@@ -28,6 +28,7 @@ const spaceBetween = computed(() => (breakpoint.value === 'is-mobile' ? 10 : 20)
 <template>
   <swiper-container
     v-if="pageInfo"
+    class="promo-slider"
     :slides-per-view="slidesPerView"
     :space-between="spaceBetween"
     :slides-offset-before="slidesOffset"
@@ -38,7 +39,10 @@ const spaceBetween = computed(() => (breakpoint.value === 'is-mobile' ? 10 : 20)
         <PromoCard :promo="promo" />
       </RouterLink>
     </swiper-slide>
+    <swiper-slide v-if="isCompact">
+      <RouterLink class="promo-slider__all-promo" to="/"> Больше акций </RouterLink>
+    </swiper-slide>
   </swiper-container>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss" src="./promoslider.scss"></style>
