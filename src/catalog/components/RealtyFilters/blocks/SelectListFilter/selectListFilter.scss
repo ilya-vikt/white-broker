@@ -1,0 +1,34 @@
+.select-filter {
+  &__list {
+    background-color: var(--cl-bg);
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    min-width: 256px;
+    border: 1px solid var(--cl-border);
+    user-select: none;
+  }
+
+  &__item {
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+
+      &:checked + label {
+        color: var(--cl-primary);
+      }
+    }
+
+    label {
+      cursor: pointer;
+      display: block;
+      padding: 10px 0;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--cl-border-card);
+    }
+  }
+}
