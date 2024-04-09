@@ -5,5 +5,15 @@ import InfoIcon from './InfoIcon.vue';
 import VkIcon from './VkIcon.vue';
 import YoutubeIcon from './YoutubeIcon.vue';
 import TelegramIcon from './TelegramIcon.vue';
+import MetroIcon from './MetroIcon.vue';
 
-export { NavigatorIcon, BurgerIcon, CrossIcon, InfoIcon, VkIcon, YoutubeIcon, TelegramIcon };
+export {
+  NavigatorIcon,
+  BurgerIcon,
+  CrossIcon,
+  InfoIcon,
+  VkIcon,
+  YoutubeIcon,
+  TelegramIcon,
+  MetroIcon
+};

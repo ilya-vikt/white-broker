@@ -1,0 +1,115 @@
+.realty-slider {
+  position: relative;
+  height: 197px;
+  display: flex;
+
+  &__list {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__slide {
+    height: inherit;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    transition: opacity $animation;
+
+    &:not(:first-child) {
+      opacity: 0;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    object-fit: contain;
+    height: 100%;
+    width: auto;
+  }
+
+  &__pagination {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    z-index: 10;
+    height: 10px;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+
+    span {
+      height: 1px;
+      flex-grow: 1;
+      background-color: var(--cl-text-six);
+
+      &:first-child {
+        background-color: var(--cl-white);
+      }
+    }
+  }
+
+  &__trigger {
+    height: 100%;
+    flex-grow: 1;
+    z-index: 1;
+
+    &:not(:first-child):hover {
+      & ~ ul > li:nth-child(1) {
+        opacity: 0;
+      }
+
+      & ~ .realty-slider__pagination span:nth-child(2) {
+        background-color: var(--cl-text-six);
+      }
+    }
+
+    &:nth-child(2):hover {
+      & ~ ul > li:nth-child(2) {
+        opacity: 1;
+      }
+
+      & ~ .realty-slider__pagination span:nth-child(2) {
+        background-color: var(--cl-white);
+      }
+    }
+
+    &:nth-child(3):hover {
+      & ~ ul > li:nth-child(3) {
+        opacity: 1;
+      }
+
+      & ~ .realty-slider__pagination span:nth-child(3) {
+        background-color: var(--cl-white);
+      }
+    }
+
+    &:nth-child(4):hover {
+      & ~ ul > li:nth-child(4) {
+        opacity: 1;
+      }
+
+      & ~ .realty-slider__pagination span:nth-child(4) {
+        background-color: var(--cl-white);
+      }
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+.is-compact .realty-slider {
+  &__trigger,
+  &__pagination {
+    display: none;
+  }
+}
