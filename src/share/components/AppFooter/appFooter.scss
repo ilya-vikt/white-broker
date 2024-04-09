@@ -35,22 +35,6 @@
     border-top: 1px solid var(--cl-border);
     color: var(--cl-text-four);
   }
-
-  &__creators a {
-    position: relative;
-    display: inline-block;
-
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0px;
-      width: 100%;
-      height: 1px;
-      background-color: var(--cl-primary);
-      z-index: -1;
-    }
-  }
 }
 
 .is-mobile .footer {

@@ -22,7 +22,7 @@ const { appConfig } = useAppConfig();
         <p class="footer__copyright">{{ appConfig.copyright }}</p>
         <p class="footer__creators">
           Сделано в —
-          <a :href="appConfig.creators.href" class="lnk" target="_blank">{{
+          <a :href="appConfig.creators.href" class="lnk lnk-underline" target="_blank">{{
             appConfig.creators.text
           }}</a>
         </p>

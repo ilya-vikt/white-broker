@@ -25,6 +25,15 @@ body {
   }
 }
 
+.lnk-underline {
+  position: relative;
+  display: inline-block;
+  text-decoration: underline;
+  text-decoration-color: var(--cl-primary);
+  text-decoration-skip-ink: none;
+  text-underline-offset: 2px;
+}
+
 .no-scroll {
   overflow: hidden;
 }
