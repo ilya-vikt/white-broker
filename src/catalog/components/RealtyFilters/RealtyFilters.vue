@@ -3,6 +3,7 @@ import RoomCountFilter from '@/catalog/components/RealtyFilters/blocks/RoomCount
 import SelectListFilter from '@/catalog/components/RealtyFilters/blocks/SelectListFilter/SelectListFilter.vue';
 import PriceFilter from '@/catalog/components/RealtyFilters/blocks/PriceFilter/PriceFilter.vue';
 import AreaFilter from '@/catalog/components/RealtyFilters/blocks/AreaFilter/AreaFilter.vue';
+import AddressFilter from '@/catalog/components/RealtyFilters/blocks/AddressFilter/AddressFilter.vue';
 import AppButton from '@/share/components/AppButton/AppButton.vue';
 import { CrossIcon } from '@/share/components/icons';
 import { useBreakpoints } from '@/share/composables/useBreakpoints';
@@ -22,6 +23,11 @@ const filters = reactive({
     houseAreaMax: 100,
     landAreaMin: 5,
     landAreaMax: 100
+  },
+  address: {
+    isMetro: false,
+    address: '',
+    metro: []
   },
   sort: 1
 });
@@ -116,6 +122,7 @@ const { isCompact } = useBreakpoints();
             landAreaMax: 100
           }"
         />
+        <AddressFilter v-model="filters.address" placeholder="Адрес, ЖК или Ж/Д  станция" />
       </div>
       <AppButton class="realty-filters__btn">Найти</AppButton>
     </div>
@@ -130,6 +137,7 @@ const { isCompact } = useBreakpoints();
           no-border
         />
       </div>
+
       <span class="realty-filters__founded">Найдено 91 предложение</span>
       <button class="realty-filters__clear lnk">Очистить фильтр<CrossIcon /></button>
     </div>
