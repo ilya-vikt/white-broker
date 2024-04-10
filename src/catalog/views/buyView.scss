@@ -18,6 +18,10 @@
     margin-bottom: clamp(40px, calc(20px + 5.556vw), 100px);
   }
 
+  &__realty-list {
+    padding-top: 50px;
+  }
+
   &__promo-top {
     display: flex;
     justify-content: space-between;

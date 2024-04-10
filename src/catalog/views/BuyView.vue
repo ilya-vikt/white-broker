@@ -16,15 +16,15 @@ const { isCompact } = useBreakpoints();
     </div>
     <div class="buy-view__realty">
       <div class="buy-view__shadow"></div>
-      <div class="container"><RealtyList /></div>
+      <div class="buy-view__realty-list container"><RealtyList /></div>
     </div>
 
     <div class="buy-view__promo">
       <div class="buy-view__promo-top title-offset container">
         <h2 class="title">Акции</h2>
-        <RouterLink v-if="!isCompact" class="buy-view__all-promo lnk-underline" to="/"
-          >Все акции</RouterLink
-        >
+        <RouterLink v-if="!isCompact" class="buy-view__all-promo lnk-underline" to="/">
+          Все акции
+        </RouterLink>
       </div>
       <div class="buy-view__slider container">
         <PromoSlider />
