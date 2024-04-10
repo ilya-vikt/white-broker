@@ -1,0 +1,26 @@
+.price-filter {
+  &__dropdown,
+  &__algorithm {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__algorithm {
+    label {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 130px;
+      background-color: var(--cl-tag);
+      border: 1px solid transparent;
+      flex-shrink: 0;
+    }
+
+    input:checked + label {
+      background-color: #ffece6;
+      color: var(--cl-primary);
+      border-color: var(--cl-primary);
+    }
+  }
+}
