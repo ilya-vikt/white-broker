@@ -109,8 +109,12 @@ const { isCompact } = useBreakpoints();
         <AreaFilter
           v-model="filters.area"
           filter-name="price"
-          :min-val="300000"
-          :max-val="100000000"
+          :constrains="{
+            houseAreaMin: 10,
+            houseAreaMax: 100,
+            landAreaMin: 5,
+            landAreaMax: 100
+          }"
         />
       </div>
       <AppButton class="realty-filters__btn">Найти</AppButton>

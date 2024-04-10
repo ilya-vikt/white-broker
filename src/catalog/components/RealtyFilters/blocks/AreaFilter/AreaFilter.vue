@@ -5,8 +5,12 @@ import { computed } from 'vue';
 
 const props = defineProps<{
   filterName: string;
-  minVal: number;
-  maxVal: number;
+  constrains: {
+    houseAreaMin: number;
+    houseAreaMax: number;
+    landAreaMin: number;
+    landAreaMax: number;
+  };
 }>();
 
 const modelValue = defineModel<{
@@ -22,6 +26,20 @@ const modelValue = defineModel<{
     landAreaMax: 0
   }
 });
+
+const minAreaHandler = (value: number, group: 'house' | 'land') => {
+  modelValue.value[`${group}AreaMin`] = Math.min(
+    Math.max(value, props.constrains[`${group}AreaMin`]),
+    modelValue.value[`${group}AreaMax`]
+  );
+};
+
+const maxAreaHandler = (value: number, group: 'house' | 'land') => {
+  modelValue.value[`${group}AreaMax`] = Math.max(
+    props.constrains[`${group}AreaMin`],
+    modelValue.value[`${group}AreaMin`]
+  );
+};
 
 const displayValue = computed(
   () =>
@@ -40,12 +58,14 @@ const displayValue = computed(
             class="area-filter__control"
             placeholder="от"
             unit="м²"
+            @change="(e) => minAreaHandler(e, 'house')"
           />
           <NumberInput
             v-model="modelValue.houseAreaMax"
             class="area-filter__control"
             placeholder="до"
             unit="м²"
+            @change="(e) => maxAreaHandler(e, 'house')"
           />
         </div>
       </div>
@@ -57,12 +77,14 @@ const displayValue = computed(
             class="area-filter__control"
             placeholder="от"
             unit="сот."
+            @change="(e) => minAreaHandler(e, 'land')"
           />
           <NumberInput
             v-model="modelValue.landAreaMax"
             class="area-filter__control"
             placeholder="до"
             unit="сот."
+            @change="(e) => maxAreaHandler(e, 'land')"
           />
         </div>
       </div>
