@@ -1,20 +1,28 @@
 .price-filter {
-  &__dropdown,
-  &__algorithm {
+  &__dropdown {
     display: flex;
     gap: 10px;
   }
 
+  &__controls,
   &__algorithm {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  &__algorithm {
+    flex-grow: 1;
     label {
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      padding: 8px 14px;
+      padding: 12px 14px;
       border-radius: 130px;
       background-color: var(--cl-tag);
       border: 1px solid transparent;
       flex-shrink: 0;
+      font-size: 14px;
     }
 
     input:checked + label {
@@ -22,5 +30,11 @@
       color: var(--cl-primary);
       border-color: var(--cl-primary);
     }
+  }
+}
+
+.is-mobile .price-filter {
+  &__dropdown {
+    flex-direction: column;
   }
 }

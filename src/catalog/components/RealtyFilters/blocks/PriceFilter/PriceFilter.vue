@@ -17,7 +17,7 @@ const modelValue = defineModel<{
 }>({
   default: {
     priceMin: 0,
-    priceMax: 0,
+    priceMax: 1000000,
     algorithm: 'total'
   }
 });
@@ -27,32 +27,34 @@ const displayValue = computed(
     `${shortenNumber(modelValue.value.priceMin)} - ${shortenNumber(modelValue.value.priceMax)} ₽${modelValue.value.algorithm === 'perSquareMeter' ? '/м²' : ''}`
 );
 
-const maxFrom = computed(() => {
-  console.log(Math.min(props.maxVal, modelValue.value.priceMax));
-  return Math.min(props.maxVal, modelValue.value.priceMax);
-});
-const minTo = computed(() => Math.max(props.minVal, modelValue.value.priceMin));
+const minChangeHandler = (value: number) => {
+  modelValue.value.priceMin = Math.min(Math.max(value, props.minVal), modelValue.value.priceMax);
+};
+
+const maxChangeHandler = (value: number) => {
+  modelValue.value.priceMax = Math.max(Math.min(value, props.maxVal), modelValue.value.priceMin);
+};
 </script>
 
 <template>
   <DropDownBase class="price-filter" :display-value="displayValue" placeholder="Цена">
     <div class="price-filter__dropdown">
-      <NumberInput
-        v-model.lazy="modelValue.priceMin"
-        class="price-filter__from"
-        :min-val="minVal"
-        :max-val="maxFrom"
-        placeholder="от"
-        unit="₽"
-      />
-      <NumberInput
-        v-model.lazy="modelValue.priceMax"
-        class="price-filter__to"
-        :min-val="minTo"
-        :max-val="maxVal"
-        placeholder="от"
-        unit="₽"
-      />
+      <div class="price-filter__controls">
+        <NumberInput
+          v-model="modelValue.priceMin"
+          class="price-filter__from"
+          placeholder="от"
+          unit="₽"
+          @change="minChangeHandler"
+        />
+        <NumberInput
+          v-model="modelValue.priceMax"
+          class="price-filter__to"
+          placeholder="от"
+          unit="₽"
+          @change="maxChangeHandler"
+        />
+      </div>
       <div class="price-filter__algorithm">
         <input
           id="for-all"
