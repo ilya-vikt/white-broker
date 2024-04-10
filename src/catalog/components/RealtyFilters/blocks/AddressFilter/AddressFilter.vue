@@ -57,28 +57,35 @@ const stationList = computed(() => {
 <template>
   <VDropdown
     v-model:shown="isExpanded"
-    class="metro-filter control-base"
-    :class="{ 'metro-filter--expanded': isExpanded }"
+    class="address-filter control-base"
+    :class="{ 'address-filter--expanded': isExpanded }"
     theme="info-dropdown"
     :distance="8"
     :disabled="!modelValue.isMetro"
     @hide="listMode = 'all'"
   >
-    <div class="metro-filter__display" :class="{ 'metro-filter__display--empty': !displayValue }">
+    <div
+      class="address-filter__display"
+      :class="{ 'address-filter__display--empty': !displayValue }"
+    >
       <input
         v-if="!modelValue.isMetro"
         v-model="modelValue.address"
-        class="metro-filter__address"
+        class="address-filter__address"
         type="text"
       />
       <span>{{ displayValue ?? placeholder }}</span>
     </div>
 
-    <div class="metro-filter__triggers">
-      <button class="metro-filter__trigger" :disabled="!modelValue.isMetro" type="button"></button>
+    <div class="address-filter__triggers">
+      <button
+        class="address-filter__trigger"
+        :disabled="!modelValue.isMetro"
+        type="button"
+      ></button>
       <button
         v-if="modelValue.isMetro && modelValue.metro?.length"
-        class="metro-filter__trigger-selected"
+        class="address-filter__trigger-selected"
         @click="listMode = 'selected'"
       >
         {{ modelValue.metro?.length }}
@@ -86,20 +93,20 @@ const stationList = computed(() => {
       <input
         id="id-metro"
         v-model="modelValue.isMetro"
-        class="metro-filter__trigger-metro hidden-input"
+        class="address-filter__trigger-metro hidden-input"
         type="checkbox"
       />
       <label for="id-metro">Метро</label>
     </div>
 
     <template #popper>
-      <div class="metro-filter__popper">
-        <label v-if="listMode === 'all'" class="metro-filter__search control-base">
+      <div class="address-filter__popper">
+        <label v-if="listMode === 'all'" class="address-filter__search control-base">
           <input v-model="search" type="text" placeholder="Введите метро" />
         </label>
 
-        <ul v-if="stationList" class="metro-filter__results">
-          <li v-for="station in stationList" :key="station.id" class="metro-filter__item">
+        <ul v-if="stationList" class="address-filter__results">
+          <li v-for="station in stationList" :key="station.id" class="address-filter__item">
             <input
               :id="`id-metro-${station.id}`"
               v-model="modelValue.metro"
