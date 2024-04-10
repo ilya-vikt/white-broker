@@ -15,7 +15,8 @@ app.use(FloatingVue, {
       $extend: 'dropdown',
       $resetCss: 'true',
       placement: 'bottom-start',
-      delay: 100
+      delay: 100,
+      flip: false
     }
   }
 });
