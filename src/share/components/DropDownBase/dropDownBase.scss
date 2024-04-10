@@ -8,6 +8,7 @@
 
   &__display {
     flex-grow: 1;
+    white-space: nowrap;
 
     &--empty {
       color: var(--cl-text-six);
