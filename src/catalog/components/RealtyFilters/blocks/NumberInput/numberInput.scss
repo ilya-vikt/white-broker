@@ -1,8 +1,10 @@
 .number-input {
   display: flex;
+  gap: 10px;
 
   &__control {
     width: 100%;
+    min-width: 100px;
     outline: none;
     border: none;
     -moz-appearance: textfield;

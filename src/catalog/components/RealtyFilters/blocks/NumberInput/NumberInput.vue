@@ -1,10 +1,12 @@
 <script setup lang="ts">
 const modelValue = defineModel<number>({ default: 0 });
+defineEmits<{
+  change: [number];
+}>();
+
 defineProps<{
   placeholder: string;
   unit: string;
-  minVal: number;
-  maxVal: number;
 }>();
 </script>
 
@@ -14,8 +16,7 @@ defineProps<{
       v-model="modelValue"
       class="number-input__control"
       type="number"
-      :min="minVal"
-      :max="maxVal"
+      @change="$emit('change', +($event.target as HTMLInputElement).value)"
     />
     <span class="number-input__unit">{{ unit }}</span>
   </label>
