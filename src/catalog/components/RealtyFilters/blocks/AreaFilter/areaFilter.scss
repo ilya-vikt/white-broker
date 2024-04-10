@@ -1,9 +1,17 @@
 .area-filter {
-  &__house {
+  &__controls {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__group {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+
+    &:first-child {
+      margin-bottom: 10px;
+    }
   }
 
   &__caption {
@@ -13,5 +21,13 @@
 
   &__control {
     width: 150px;
+  }
+}
+
+.is-mobile .area-filter {
+  &__group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
   }
 }

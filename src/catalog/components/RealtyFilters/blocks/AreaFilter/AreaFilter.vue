@@ -32,43 +32,39 @@ const displayValue = computed(
 <template>
   <DropDownBase class="area-filter" :display-value="displayValue" placeholder="Цена">
     <div class="area-filter__dropdown">
-      <div class="area-filter__house">
+      <div class="area-filter__group">
         <span class="area-filter__caption">Дом</span>
-        <NumberInput
-          v-model.lazy="modelValue.houseAreaMin"
-          class="area-filter__control"
-          :min-val="minVal"
-          :max-val="500"
-          placeholder="от"
-          unit="м²"
-        />
-        <NumberInput
-          v-model.lazy="modelValue.houseAreaMax"
-          class="area-filter__control"
-          :min-val="0"
-          :max-val="maxVal"
-          placeholder="до"
-          unit="м²"
-        />
+        <div class="area-filter__controls">
+          <NumberInput
+            v-model="modelValue.houseAreaMin"
+            class="area-filter__control"
+            placeholder="от"
+            unit="м²"
+          />
+          <NumberInput
+            v-model="modelValue.houseAreaMax"
+            class="area-filter__control"
+            placeholder="до"
+            unit="м²"
+          />
+        </div>
       </div>
-      <div class="area-filter__house">
+      <div class="area-filter__group">
         <span class="area-filter__caption">Участок</span>
-        <NumberInput
-          v-model.lazy="modelValue.landAreaMin"
-          class="area-filter__control"
-          :min-val="minVal"
-          :max-val="500"
-          placeholder="от"
-          unit="сот."
-        />
-        <NumberInput
-          v-model.lazy="modelValue.landAreaMax"
-          class="area-filter__control"
-          :min-val="0"
-          :max-val="maxVal"
-          placeholder="до"
-          unit="сот."
-        />
+        <div class="area-filter__controls">
+          <NumberInput
+            v-model="modelValue.landAreaMin"
+            class="area-filter__control"
+            placeholder="от"
+            unit="сот."
+          />
+          <NumberInput
+            v-model="modelValue.landAreaMax"
+            class="area-filter__control"
+            placeholder="до"
+            unit="сот."
+          />
+        </div>
       </div>
     </div>
   </DropDownBase>
