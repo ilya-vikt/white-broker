@@ -10,6 +10,7 @@ const props = defineProps<{
     value: number;
   }[];
   multiselect?: boolean;
+  noBorder?: boolean;
 }>();
 
 const modelValue = defineModel<number[] | number>();
@@ -33,6 +34,7 @@ const displayValue = computed(() => {
 <template>
   <DropDownBase
     class="select-filter"
+    :class="{ 'select-filter--no-border': noBorder }"
     :display-value="displayValue"
     placeholder="Значение не выбрано"
   >
