@@ -1,5 +1,6 @@
 import type { PageInfo } from '@/share/types';
 import type { ComputedRef } from 'vue';
+import type { RealtyFilters } from '.';
 
 export type BuyPageInfo = PageInfo & {
   creditCalc: {
@@ -32,6 +33,19 @@ export type BuyPageInfo = PageInfo & {
     href: string;
     decorUrl: string;
   }[];
+  filters: {
+    realtyType: {
+      values: {
+        id: number;
+        caption: string;
+        subType: {
+          id: number;
+          caption: string;
+        }[];
+        subFilters: [RealtyFilters];
+      }[];
+    };
+  };
 };
 
 export type BuyPageInfoRef = ComputedRef<BuyPageInfo | null>;

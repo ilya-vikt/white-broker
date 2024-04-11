@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import type {
+  AreaFilterType,
+  BuyPageInfoRef,
+  ModelValueFilters,
+  PriceFilterType
+} from '@/catalog/types';
 import RoomCountFilter from '@/catalog/components/RealtyFilters/blocks/RoomCountFilter/RoomCountFilter.vue';
 import SelectListFilter from '@/catalog/components/RealtyFilters/blocks/SelectListFilter/SelectListFilter.vue';
 import PriceFilter from '@/catalog/components/RealtyFilters/blocks/PriceFilter/PriceFilter.vue';
@@ -7,68 +13,8 @@ import AddressFilter from '@/catalog/components/RealtyFilters/blocks/AddressFilt
 import AppButton from '@/share/components/AppButton/AppButton.vue';
 import { CrossIcon } from '@/share/components/icons';
 import { useBreakpoints } from '@/share/composables/useBreakpoints';
-import { reactive } from 'vue';
-
-const filters = reactive({
-  roomCount: 0,
-  houseType: [1],
-  realtyType: 1,
-  price: {
-    priceMin: 300000,
-    priceMax: 100000000,
-    algorithm: 'total'
-  },
-  area: {
-    houseAreaMin: 20,
-    houseAreaMax: 100,
-    landAreaMin: 5,
-    landAreaMax: 100
-  },
-  address: {
-    isMetro: false,
-    address: '',
-    metro: []
-  },
-  sort: 1
-});
-
-const realtyTypes = [
-  {
-    caption: 'Квартира',
-    value: 1
-  },
-  {
-    caption: 'Дом',
-    value: 2
-  },
-  {
-    caption: 'Коммерция',
-    value: 3
-  }
-];
-
-const houseTypes = [
-  {
-    caption: 'Дом',
-    value: 1
-  },
-  {
-    caption: 'Дача',
-    value: 2
-  },
-  {
-    caption: 'Коттедж',
-    value: 3
-  },
-  {
-    caption: 'Таунхаус',
-    value: 4
-  },
-  {
-    caption: 'Доля в доме',
-    value: 5
-  }
-];
+import { usePageInfo } from '@/share/composables/usePageInfo';
+import { computed, ref, watchEffect } from 'vue';
 
 const sortTypes = [
   {
@@ -86,6 +32,88 @@ const sortTypes = [
 ];
 
 const { isCompact } = useBreakpoints();
+const { pageInfo }: { pageInfo: BuyPageInfoRef } = usePageInfo();
+
+const realtyTypes = computed(
+  () =>
+    pageInfo.value?.filters.realtyType.values.map(({ id, caption }) => ({
+      value: id,
+      caption
+    })) ?? []
+);
+
+const realtySubtypes = computed(
+  () =>
+    pageInfo.value?.filters.realtyType.values
+      .find(({ id }) => id === realtyTypeModel.value)
+      ?.subType.map(({ id, caption }) => ({
+        value: id,
+        caption
+      })) ?? []
+);
+
+const subFilters = computed(
+  () =>
+    pageInfo.value?.filters.realtyType.values.find(({ id }) => id === realtyTypeModel.value)
+      ?.subFilters ?? []
+);
+
+//Model values
+const realtyTypeModel = ref(1);
+const realtySubtypeModel = ref([0]);
+const subModels = ref<ModelValueFilters[]>([]); //all other filters
+
+//Recreate ModelValues for Realty subtype when change Realty type filter
+watchEffect(() => (realtySubtypeModel.value = [realtySubtypes.value[0]?.value ?? 0]));
+
+//Recreate and init array of for the SubFilters when change Realty type filter
+watchEffect(
+  () =>
+    (subModels.value = subFilters.value.map((el, idx) => {
+      if (el.name === 'area') {
+        const initVal = subFilters.value[idx] as AreaFilterType;
+
+        return {
+          houseAreaMin: initVal.houseAreaMin,
+          houseAreaMax: initVal.houseAreaMax,
+          landAreaMin: initVal.landAreaMin,
+          landAreaMax: initVal.landAreaMax
+        };
+      }
+
+      if (el.name === 'price') {
+        const initVal = subFilters.value[idx] as PriceFilterType;
+
+        return {
+          priceMin: initVal.minVal,
+          priceMax: initVal.maxVal,
+          algorithm: initVal.algorithm
+        };
+      }
+
+      if (el.name === 'roomCount') {
+        return 0;
+      }
+
+      if (el.name === 'address') {
+        return {
+          address: '',
+          isMetro: false,
+          metro: []
+        };
+      }
+
+      return 0;
+    }))
+);
+
+const filterComponent = (filterName: string) => {
+  if (filterName === 'roomCount') return RoomCountFilter;
+  if (filterName === 'area') return AreaFilter;
+  if (filterName === 'price') return PriceFilter;
+  if (filterName === 'address') return AddressFilter;
+  return 'div';
+};
 </script>
 
 <template>
@@ -93,36 +121,32 @@ const { isCompact } = useBreakpoints();
     <div class="realty-filters__top">
       <div class="realty-filters__inner">
         <SelectListFilter
-          v-model="filters.realtyType"
+          v-model="realtyTypeModel"
           :filter-data="realtyTypes"
           :filter-name="'realtyType'"
           placeholder="Выберите значение"
         />
-        <RoomCountFilter v-model="filters.roomCount" class="realty-filters__room" />
+
         <SelectListFilter
-          v-model="filters.houseType"
-          :filter-data="houseTypes"
+          v-model="realtySubtypeModel"
+          :filter-data="realtySubtypes"
           :filter-name="'houseType'"
           placeholder="Выберите значение"
           multiselect
         />
-        <PriceFilter
-          v-model="filters.price"
-          filter-name="price"
-          :min-val="300000"
-          :max-val="100000000"
-        />
-        <AreaFilter
-          v-model="filters.area"
-          filter-name="price"
-          :constrains="{
-            houseAreaMin: 10,
-            houseAreaMax: 100,
-            landAreaMin: 5,
-            landAreaMax: 100
-          }"
-        />
-        <AddressFilter v-model="filters.address" placeholder="Адрес, ЖК или Ж/Д  станция" />
+
+        <div
+          v-for="(subFilter, idx) in subFilters"
+          :key="subFilter.name"
+          class="realty-filters__subfilters"
+        >
+          <component
+            :is="filterComponent(subFilter.name)"
+            v-model="subModels[idx]"
+            :filter-data="subFilter"
+            >{{ subFilter.name }}</component
+          >
+        </div>
       </div>
       <AppButton class="realty-filters__btn">Найти</AppButton>
     </div>
@@ -130,7 +154,6 @@ const { isCompact } = useBreakpoints();
       <div class="realty-filters__sort">
         <span>Сортировать:</span>
         <SelectListFilter
-          v-model="filters.sort"
           :filter-data="sortTypes"
           :filter-name="'sortType'"
           placeholder="Выберите значение"

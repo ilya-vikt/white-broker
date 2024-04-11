@@ -339,7 +339,130 @@
           "href": "/",
           "decorUrl": "./promo/decor-1.svg"
         }
-      ]
+      ],
+      "filters": {
+        "realtyType": {
+          "id": 0,
+          "values": [
+            {
+              "id": 1,
+              "caption": "Квартира",
+              "subType": [
+                {
+                  "id": 2,
+                  "caption": "Новостройки и вторичка"
+                },
+                {
+                  "id": 3,
+                  "caption": "Новостройки"
+                },
+                {
+                  "id": 4,
+                  "caption": "вторичка"
+                }
+              ],
+              "subFilters": [
+                {
+                  "name": "roomCount"
+                },
+
+                {
+                  "name": "price",
+                  "minVal": 300000,
+                  "maxVal": 100000000,
+                  "algorithm": "total"
+                },
+                {
+                  "name": "address"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "caption": "Дом",
+              "subType": [
+                {
+                  "id": 6,
+                  "caption": "Дом"
+                },
+                {
+                  "id": 7,
+                  "caption": "Дача"
+                },
+                {
+                  "id": 8,
+                  "caption": "Коттедж"
+                },
+                {
+                  "id": 9,
+                  "caption": "Таунхаус"
+                },
+                {
+                  "id": 10,
+                  "caption": "Доля в доме"
+                }
+              ],
+
+              "subFilters": [
+                {
+                  "name": "area",
+                  "houseAreaMin": 20,
+                  "houseAreaMax": 100,
+                  "landAreaMin": 5,
+                  "landAreaMax": 100
+                },
+                {
+                  "name": "price",
+                  "minVal": 300000,
+                  "maxVal": 100000000,
+                  "algorithm": "total"
+                },
+                {
+                  "name": "address"
+                }
+              ]
+            },
+            {
+              "id": 11,
+              "caption": "Коммерция",
+              "subType": [
+                {
+                  "id": 12,
+                  "caption": "Офис"
+                },
+                {
+                  "id": 13,
+                  "caption": "Помещение свободного назначения"
+                },
+                {
+                  "id": 14,
+                  "caption": "Готовый бизнес"
+                },
+                {
+                  "id": 15,
+                  "caption": "Склад"
+                },
+                {
+                  "id": 16,
+                  "caption": "Здание"
+                }
+              ],
+
+              "subFilters": [
+                {
+                  "name": "price",
+                  "minVal": 300000,
+                  "maxVal": 100000000,
+                  "algorithm": "total"
+                },
+                {
+                  "name": "address"
+                }
+              ]
+            }
+          ]
+        }
+      }
     }
   ],
   "metrostations": [

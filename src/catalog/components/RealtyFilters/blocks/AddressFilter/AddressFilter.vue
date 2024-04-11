@@ -1,25 +1,12 @@
 <script setup lang="ts">
+import type { ModelValueAddressFilter } from '@/catalog/types';
 import { useMetroStations } from '@/catalog/composables/useMetroStations';
 import { MetroIcon } from '@/share/components/icons';
 import { computed, ref } from 'vue';
 
-defineProps<{
-  placeholder: string;
-}>();
-
 const isExpanded = ref(false);
 
-const modelValue = defineModel<{
-  isMetro: boolean;
-  address: string;
-  metro: number[];
-}>({
-  default: {
-    isMetro: false,
-    address: '',
-    metro: []
-  }
-});
+const modelValue = defineModel<ModelValueAddressFilter>({ required: true });
 
 const displayValue = computed(() => {
   if (!modelValue.value) return null;
@@ -74,7 +61,7 @@ const stationList = computed(() => {
         class="address-filter__address"
         type="text"
       />
-      <span>{{ displayValue ?? placeholder }}</span>
+      <span>{{ displayValue ?? 'Адрес, ЖК или Ж/Д  станция' }}</span>
     </div>
 
     <div class="address-filter__triggers">

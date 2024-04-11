@@ -3,24 +3,13 @@ import DropDownBase from '@/share/components/DropDownBase/DropDownBase.vue';
 import NumberInput from '@/catalog/components/RealtyFilters/blocks/NumberInput/NumberInput.vue';
 import { computed } from 'vue';
 import { shortenNumber } from '@/share/utils';
+import type { ModelValuePriceFilter, PriceFilterType } from '@/catalog/types';
 
 const props = defineProps<{
-  filterName: string;
-  minVal: number;
-  maxVal: number;
+  filterData: PriceFilterType;
 }>();
 
-const modelValue = defineModel<{
-  priceMin: number;
-  priceMax: number;
-  algorithm: string;
-}>({
-  default: {
-    priceMin: 0,
-    priceMax: 1000000,
-    algorithm: 'total'
-  }
-});
+const modelValue = defineModel<ModelValuePriceFilter>({ required: true });
 
 const displayValue = computed(
   () =>
@@ -28,11 +17,17 @@ const displayValue = computed(
 );
 
 const minChangeHandler = (value: number) => {
-  modelValue.value.priceMin = Math.min(Math.max(value, props.minVal), modelValue.value.priceMax);
+  modelValue.value.priceMin = Math.min(
+    Math.max(value, props.filterData.minVal),
+    modelValue.value.priceMax
+  );
 };
 
 const maxChangeHandler = (value: number) => {
-  modelValue.value.priceMax = Math.max(Math.min(value, props.maxVal), modelValue.value.priceMin);
+  modelValue.value.priceMax = Math.max(
+    Math.min(value, props.filterData.maxVal),
+    modelValue.value.priceMin
+  );
 };
 </script>
 

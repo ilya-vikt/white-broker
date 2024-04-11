@@ -2,41 +2,26 @@
 import DropDownBase from '@/share/components/DropDownBase/DropDownBase.vue';
 import NumberInput from '@/catalog/components/RealtyFilters/blocks/NumberInput/NumberInput.vue';
 import { computed } from 'vue';
+import type { AreaFilterType, ModelValueAreaFilter } from '@/catalog/types';
 
 const props = defineProps<{
-  filterName: string;
-  constrains: {
-    houseAreaMin: number;
-    houseAreaMax: number;
-    landAreaMin: number;
-    landAreaMax: number;
-  };
+  filterData: AreaFilterType;
 }>();
 
-const modelValue = defineModel<{
-  houseAreaMin: number;
-  houseAreaMax: number;
-  landAreaMin: number;
-  landAreaMax: number;
-}>({
-  default: {
-    houseAreaMin: 0,
-    houseAreaMax: 0,
-    landAreaMin: 0,
-    landAreaMax: 0
-  }
+const modelValue = defineModel<ModelValueAreaFilter>({
+  required: true
 });
 
 const minAreaHandler = (value: number, group: 'house' | 'land') => {
   modelValue.value[`${group}AreaMin`] = Math.min(
-    Math.max(value, props.constrains[`${group}AreaMin`]),
+    Math.max(value, props.filterData[`${group}AreaMin`]),
     modelValue.value[`${group}AreaMax`]
   );
 };
 
 const maxAreaHandler = (value: number, group: 'house' | 'land') => {
   modelValue.value[`${group}AreaMax`] = Math.max(
-    props.constrains[`${group}AreaMin`],
+    props.filterData[`${group}AreaMin`],
     modelValue.value[`${group}AreaMin`]
   );
 };

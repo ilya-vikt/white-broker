@@ -3,7 +3,7 @@ const modelValue = defineModel<number>();
 </script>
 
 <template>
-  <div class="room-filter control-base" tabindex="0">
+  <div class="room-filter control-base">
     <input id="studio" v-model="modelValue" type="radio" name="room-count" value="0" />
     <label for="studio">Студия</label>
     <input id="room-1" v-model="modelValue" type="radio" name="room-count" value="1" />
